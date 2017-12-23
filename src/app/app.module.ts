@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TriviaProvider } from '../providers/trivia/trivia';
 import { HeaderComponent } from '../components/header/header';
+import { TriviaDataProvider } from '../providers/trivia-data/trivia-data';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HeaderComponent } from '../components/header/header';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TriviaProvider
+    TriviaProvider,
+    TriviaDataProvider
   ]
 })
 export class AppModule {}
