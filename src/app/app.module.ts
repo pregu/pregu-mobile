@@ -8,11 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TriviaProvider } from '../providers/trivia/trivia';
+import { HeaderComponent } from '../components/header/header';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
