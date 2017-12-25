@@ -6,7 +6,7 @@ import { TriviaProvider } from '../../providers/trivia/trivia';
 import { TriviaDataProvider } from '../../providers/trivia-data/trivia-data';
 
 import { Category } from '../../models/category/category';
-import { StandartResponse } from '../../models/standart-response/standart-response';
+import { StandardResponse } from '../../models/standard-response/standard-response';
 import { Question } from '../../models/question/question';
 
 @Component({
@@ -69,7 +69,7 @@ export class HomePage {
   public startGame() {
     let data = this.form.value;
     this.triviaProvider.getQuestions(data.amount, parseInt(data.category), data.difficulty, data.type).subscribe(
-      (result: StandartResponse) => {
+      (result: StandardResponse) => {
         switch (result.response_code) {
           case 1: {
             this.showAlert('No results', 'There are not enough questions of the selected type and category.')

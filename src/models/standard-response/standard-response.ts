@@ -1,4 +1,4 @@
-export interface StandartResponse {
+export interface StandardResponse {
   response_code: number;
   results: Array<object>;
 }
