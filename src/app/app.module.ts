@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { QuestionPage } from '../pages/question/question';
 import { TriviaProvider } from '../providers/trivia/trivia';
 import { HeaderComponent } from '../components/header/header';
 import { TriviaDataProvider } from '../providers/trivia-data/trivia-data';
@@ -15,6 +16,7 @@ import { TriviaDataProvider } from '../providers/trivia-data/trivia-data';
   declarations: [
     MyApp,
     HomePage,
+    QuestionPage,
     HeaderComponent
   ],
   imports: [
@@ -25,7 +27,8 @@ import { TriviaDataProvider } from '../providers/trivia-data/trivia-data';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    QuestionPage
   ],
   providers: [
     StatusBar,
