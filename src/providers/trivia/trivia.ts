@@ -22,14 +22,14 @@ export class TriviaProvider {
 
   public getQuestions(amount: number = 10, category?: number, difficulty?: string, type?: string) {
     let url = `${this.apiUrl}/api.php?amount=${amount}`;
-    if (category) {
+    if (category && category !== 0) {
       url += `&category=${category}`;
     }
-    if (difficulty) {
-      url += `&category=${difficulty}`;
+    if (difficulty && difficulty !== 'any') {
+      url += `&difficulty=${difficulty}`;
     }
-    if (type) {
-      url += `&category=${type}`;
+    if (type && type !== 'any') {
+      url += `&type=${type}`;
     }
     return this.http.get(url);
   }

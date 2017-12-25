@@ -3,8 +3,47 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <form [formGroup]="form" (ngSubmit)="startGame()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label stacked>Category</ion-label>
+        <ion-select
+          formControlName="category">
+          <ion-option *ngFor="let option of categories" value="{{ option.id }}">
+            {{ option.name }}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Number of questions</ion-label>
+        <ion-input formControlName="amount" type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Difficulty</ion-label>
+        <ion-select
+          formControlName="difficulty">
+          <ion-option *ngFor="let option of difficulties" value="{{ option.value }}">
+            {{ option.label }}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Type</ion-label>
+        <ion-select
+          formControlName="type">
+          <ion-option *ngFor="let option of types" value="{{ option.value }}">
+            {{ option.label }}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+
+      <button ion-button block type="submit" class="submit-button" [disabled]="!form.valid">Start</button>
+
+    </ion-list>
+  </form>
+
 </ion-content>
