@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { NavController, AlertController } from 'ionic-angular';
 
 import { TriviaProvider } from '../../providers/trivia/trivia';
 import { TriviaDataProvider } from '../../providers/trivia-data/trivia-data';
@@ -8,6 +8,8 @@ import { TriviaDataProvider } from '../../providers/trivia-data/trivia-data';
 import { Category } from '../../models/category/category';
 import { StandardResponse } from '../../models/standard-response/standard-response';
 import { Question } from '../../models/question/question';
+
+import { QuestionPage } from '../question/question';
 
 @Component({
   selector: 'page-home',
@@ -82,18 +84,20 @@ export class HomePage {
           case 0: {
             let categoryInstance = this.categories.find(category => category.id == parseInt(data.category));
             let questionInstance;
-            for (let question in result.results) {
+            for (let question of result.results) {
 
               questionInstance = new Question(
                 categoryInstance,
                 question['type'],
                 question['difficulty'],
                 question['question'],
-                question['correctAnser'],
-                question['incorrectAnswers']
+                question['correct_answer'],
+                question['incorrect_answers']
               )
               this.triviaDataProvider.questions.push(questionInstance);
             }
+
+            this.navCtrl.setRoot(QuestionPage);
             break;
           }
           default: {

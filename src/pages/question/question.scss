@@ -1,0 +1,16 @@
+page-question {
+  .correct {
+    background: color($colors, correct);
+  }
+  .incorrect {
+    background:  color($colors, incorrect);
+  }
+  .continue-button {
+    margin-top: 15px;
+    padding: 15px;
+    background:  color($colors, secondary);
+  }
+  [ion-button][disabled] {
+    opacity: 1;
+  }
+}

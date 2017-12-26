@@ -1,0 +1,27 @@
+<ion-header>
+  <header pageTitle="Question {{ questionNumber }} of {{ totalQuestions }}"></header>
+</ion-header>
+
+
+<ion-content padding>
+  <h2 [innerHTML]="question.question"></h2>
+
+  <button
+    *ngFor="let answer of answers"
+    (click)="submitAnswer($event, answer)"
+    [disabled]="isAnswered"
+    [ngClass]="{'correct': isAnswered && isCorrect(answer)}"
+    [innerHTML]="answer"
+    ion-button block>
+  </button>
+
+  <button
+    *ngIf="isAnswered"
+    (click)="goToNextQuestion()"
+    class="continue-button"
+    ion-button icon-right block>
+    Continue
+    <ion-icon name="arrow-forward"></ion-icon>
+  </button>
+
+</ion-content>

@@ -7,4 +7,6 @@ export class TriviaDataProvider {
   public token: string;
   public categories: Array<Category> = [new Category(0, 'Any')];
   public questions: Array<Question> = new Array();
+  public currentQuestionIndex: number = 0;
+  public score: number = 0;
 }
